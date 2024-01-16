@@ -12,6 +12,7 @@ services:
       LDAP_ADMIN_PASSWORD: "password"
     networks:
       - my_network
+    restart: always
   idp:
     image: idp 
     container_name: idp
@@ -23,6 +24,7 @@ services:
       my_network:
         aliases:
           - idp.example.org
+    restart: always
   sp:
     image: sp
     container_name: sp
@@ -32,6 +34,7 @@ services:
       - 10443:10443
     networks:
       - my_network
+    restart: always
 
 networks:
   my_network:
